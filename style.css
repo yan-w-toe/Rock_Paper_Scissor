@@ -1,0 +1,21 @@
+body{
+    margin: 0;
+}
+
+.header{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 50px;
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+#announcement{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}

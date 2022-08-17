@@ -3,79 +3,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="rps.js" defer></script>
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    <script>
-
-        // Computer choice function
-        function getComputerChoice() {
-            const message = Math.floor(Math.random() * 100);
-            if (message < 50 ) {
-                return 'rock';
-            } else if ( message % 2 == 1) {
-                return 'paper';
-            } else if ( message % 2 === 0) {
-                return 'scissors';
-            }
-        }
-
-        // game function
-        function playRound(player, computer) {
-            if (player === computer) {
-                return 'Draw';
-            } else if (player === 'rock' && computer === 'paper'){
-                return 'Computer wins';
-            } else if (player === 'rock' && computer === 'scissors'){
-                return 'Player wins';
-            } else if (player === 'paper' && computer === 'rock'){
-                return 'Player wins';
-            } else if (player === 'paper' && computer === 'scissors'){
-                return 'Computer wins';
-            } else if (player === 'scissors' && computer === 'rock'){
-                return 'Computer wins';
-            } else if (player === 'scissors' && computer === 'paper'){
-                return 'Player wins';
-            } 
-        }
-
-        let PlayerScore = 0;
-        let ComputerScore = 0;
-        
-        // rounds of game
-        function game(){
-            for (i = 1; i <= 10; i++) {
-                console.log(`Round number ${i}`);
-                const playerSelection = prompt('Please enter either rock or paper or scissors');
-                const playerSelectionLower = playerSelection.toLowerCase();
-                console.log(`Player Selection : ${playerSelectionLower}`);
-                const computerSelection = getComputerChoice();
-                console.log(`Computer Selection : ${computerSelection}`);
-                console.log(playRound(playerSelectionLower, computerSelection));
-                if (playRound(playerSelectionLower, computerSelection) === 'Player wins'){
-                    PlayerScore += 1;
-                    console.log(`Player ${PlayerScore} : Computer ${ComputerScore}`)
-                } else if (playRound(playerSelectionLower, computerSelection) === 'Computer wins'){
-                    ComputerScore += 1;
-                    console.log(`Player ${PlayerScore} : Computer ${ComputerScore}`)
-                } else if (playRound(playerSelectionLower, computerSelection) === 'Draw'){
-                    console.log(`Player ${PlayerScore} : Computer ${ComputerScore}`)
-                }
-                console.log('\n');
-            }
-        }    
-
-        game(); // variables from function ends up with the same value from the function even though it is used outside the function
-
-        // Round evaluation
-        if (PlayerScore > ComputerScore){
-            console.log('Player wins the round');
-        } else if (PlayerScore < ComputerScore){
-            console.log('Computer wins the round');
-        } else if (PlayerScore === ComputerScore){
-            console.log('The round ends in a draw');
-        }
-        
-    </script>
+    <div class="header">
+        <button class="rock">Rock</button>
+        <button class="paper">Paper</button>
+        <button class="scissors">Scissors</button>
+    </div>
+    <div id="container"></div>
+    <div id="announcement"></div>
 </body>
 </html>
